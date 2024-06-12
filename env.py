@@ -1,2 +1,2 @@
-URL = "https://www.google.com/maps/place/Google+UK/@51.5332608,-0.1304879,17z/data=!4m7!3m6!1s0x48761b3c54efa6e1:0xc7053ab04745950d!8m2!3d51.5332609!4d-0.1260032!9m1!1b1"
+URL = "https://www.google.de/maps/place/Sprengel+Museum+Hannover/@52.3634268,9.7376922,17z/data=!3m1!5s0x47b074c980b0fa43:0x128980522562032d!4m8!3m7!1s0x47b074c99adb89d9:0xafd37757fc14a258!8m2!3d52.3634236!4d9.7402725!9m1!1b1!16zL20vMDJjal93?entry=ttu"
 DriverLocation = "./Driver/chromedriver.exe"
