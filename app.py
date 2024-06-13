@@ -12,16 +12,18 @@ from env import URL, DriverLocation
 """Scraped Daten"""
 def get_data(driver):
     print('Data scraping...')
-    more_elements = driver.find_elements_by_class_name('w8nwRe kyuRq')
-    for list_more_element in more_elements:
-        list_more_element.click()
-        print("click auf das Mehr")
     
     elements = driver.find_elements_by_class_name(
         'jftiEf')
     list_data = []
     x = 0
     for data in elements:
+
+        """checkt, ob more Button gedrückt werden muss (Buttonklasse = w8nwRe kyuRq)"""
+        if check_exists_by_xpath('.//div/div/div[4]/div[2]/div/span[2]/button', data):
+            data.find_element_by_xpath('.//div/div/div[4]/div[2]/div/span[2]/button').click()
+            print("click auf das Mehr")
+
         name = data.find_element_by_xpath(
             './/div[2]/div[2]/div[1]/button/div[1]').text
 
@@ -56,7 +58,7 @@ def counter():
     result = result[0].split('\n')
     return int(int(result[0])/10)+1
 
-"""Scrolling des Bewertungsbereiches (damit alle Bewertungen im HTML geladen werden)"""
+"""Scrolling des Bewertungsbereiches (damit alle Bewertungen ins HTML geladen werden)"""
 def scrolling(counter):
     print('scrolling...')
     scrollable_div = driver.find_element_by_xpath(
@@ -71,7 +73,7 @@ def scrolling(counter):
         print(str(x) + " scroll ._.")
         time.sleep(3)
 
-"""checkt ob xpath valid"""
+"""checkt ob xpath valid ist"""
 def check_exists_by_xpath(xpath, data):
     try:
         data.find_element_by_xpath(xpath)
