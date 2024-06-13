@@ -19,7 +19,7 @@ def get_data(driver):
     x = 0
     for data in elements:
 
-        """checkt, ob more Button gedrückt werden muss (Buttonklasse = w8nwRe kyuRq)"""
+        """checkt, ob "more" Button gedrückt werden muss (Klassenname = w8nwRe kyuRq)"""
         if check_exists_by_xpath('.//div/div/div[4]/div[2]/div/span[2]/button', data):
             data.find_element_by_xpath('.//div/div/div[4]/div[2]/div/span[2]/button').click()
             print("click auf das Mehr")
@@ -56,7 +56,13 @@ def counter():
     result = result.replace('.', '')
     result = result.split(' ')
     result = result[0].split('\n')
-    return int(int(result[0])/10)+1
+    amount = int(int(result[0])/10)+1
+
+    """Problem: Mapsrezensionen laden erfahrungsgemäß nicht mehr nach 100 mal scrollen, dh. Eingrenzung der Iterationen"""
+    if amount <= 100:
+        return amount
+    else:
+        return 100
 
 """Scrolling des Bewertungsbereiches (damit alle Bewertungen ins HTML geladen werden)"""
 def scrolling(counter):
