@@ -22,7 +22,7 @@ def get_data(driver):
         """checkt, ob "more" Button gedrückt werden muss (Klassenname = w8nwRe kyuRq)"""
         if check_exists_by_xpath('.//div/div/div[4]/div[2]/div/span[2]/button', data):
             data.find_element_by_xpath('.//div/div/div[4]/div[2]/div/span[2]/button').click()
-            print("click auf das Mehr")
+            # print("click auf das Mehr")
 
         name = data.find_element_by_xpath(
             './/div[2]/div[2]/div[1]/button/div[1]').text
@@ -44,7 +44,7 @@ def get_data(driver):
 
 
         x = x + 1
-        print(str(x) + " scrape :)")
+        # print(str(x) + " scrape :)")
 
         list_data.append([name, leftover, ago, rating, kommentar])
 
@@ -76,7 +76,7 @@ def scrolling(counter):
             scrollable_div
         )
         x = x + 1
-        print(str(x) + " scroll ._.")
+        # print(str(x) + " scroll ._.")
         time.sleep(3)
 
 """checkt ob xpath valid ist"""
